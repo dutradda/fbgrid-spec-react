@@ -31,7 +31,7 @@ if (env.stringified['process.env'].NODE_ENV !== '"production"') {
 }
 
 // Note: defined here because it will be used more than once.
-const cssFilename = 'css/index.css';
+const cssFilename = 'static/css/[name].[contenthash:8].css';
 
 // ExtractTextPlugin expects the build output to be flat.
 // (See https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/27)
@@ -51,13 +51,25 @@ module.exports = {
   // We generate sourcemaps in production. This is slow but gives good results.
   // You can exclude the *.map files from the build during deployment.
   devtool: shouldUseSourceMap ? 'source-map' : false,
-  // In production, we only want to load the app code.
-  entry: [paths.appLibIndexJs], // CRL: library index file instead of app index
+  // In production, we only want to load the polyfills and the app code.
+  entry: [require.resolve('./polyfills'), paths.appLibIndexJs], // CRL: library index file instead of app index
   output: {
     // CRL: Updated whole block with library specific info
     path: paths.appBuild,
     filename: 'index.js',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    // Generated JS file names (with nested folders).
+    // There will be one main bundle, and one file per asynchronous chunk.
+    // We don't currently advertise code splitting but Webpack supports it.
+    /* filename: 'static/js/[name].[chunkhash:8].js',
+    chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
+    // We inferred the "public path" (such as / or /my-project) from homepage.
+    publicPath: publicPath,
+    // Point sourcemap entries to original disk location (format as URL on Windows)
+    devtoolModuleFilenameTemplate: info =>
+      path
+        .relative(paths.appLibSrc, info.absoluteResourcePath)
+        .replace(/\\/g, '/'), */
   },
   resolve: {
     // This allows you to set a fallback for where Webpack should look for modules.
@@ -126,9 +138,7 @@ module.exports = {
             loader: require.resolve('url-loader'),
             options: {
               limit: 10000,
-              name: '[hash].[ext]',
-              outputPath: 'media/',
-              publicPath: '../'
+              name: 'static/media/[name].[hash:8].[ext]',
             },
           },
           // Process JS with Babel.
@@ -210,11 +220,9 @@ module.exports = {
             // it's runtime that would otherwise processed through "file" loader.
             // Also exclude `html` and `json` extensions so they get processed
             // by webpacks internal loaders.
-            exclude: [/\.js$/, /\.html$/, /\.json$/],
+            exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/],
             options: {
-              name: '[hash].[ext]',
-              outputPath: 'media/',
-              publicPath: '../'
+              name: 'static/media/[name].[hash:8].[ext]',
             },
           },
           // ** STOP ** Are you adding a new loader?
