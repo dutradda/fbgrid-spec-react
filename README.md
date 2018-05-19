@@ -11,20 +11,49 @@
 Basic usage:
 
 ```jsx
+import React from 'react';
+import FlexBoxGrid from 'fbgrid-spec-react';
+
+const cellStyle = {
+  borderStyle: 'solid',
+  borderWidth: '0.01em',
+  margin: '0.1em',
+  textAlign: 'center'
+};
+
 const spec = {
-  style: { flexDirection: "column" },
+  style: { flexDirection: 'column' },
   cells: [
     {
-      "component": { "name": "MyComponent1" }
+      style: cellStyle,
+      component: {
+        name: 'MyComponent',
+        options: { text: 'My Component 1' }
+      }
     },{
-      "component": { "name": "MyComponent2" }
+      style: cellStyle,
+      component: {
+        name: 'MyComponent',
+        options: { text: 'My Component 2' }
+      }
     }
   ]
 };
-const componentsMap = { MyComponent1, MyComponent2 };
 
-<FlexGrid
-  spec={spec}
-  componentsMap={componentsMap}
-/>
+const MyComponent = props => (
+  <p>{props.text}</p>
+);
+
+const componentsMap = {
+  MyComponent
+};
+
+export default () => {
+  return (
+    <FlexBoxGrid
+      spec={spec}
+      componentsMap={componentsMap}
+    />
+  );
+};
 ```
