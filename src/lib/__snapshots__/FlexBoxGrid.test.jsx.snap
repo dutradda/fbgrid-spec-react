@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FlexBoxGrid renders built-in tags 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column",
+    }
+  }
+>
+  <div
+    style={undefined}
+  >
+    <div />
+  </div>
+  <div
+    style={undefined}
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`FlexBoxGrid renders user tags 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column",
+    }
+  }
+>
+  <div
+    style={undefined}
+  >
+    <p>
+      User Tag 1
+    </p>
+  </div>
+  <div
+    style={undefined}
+  >
+    <p>
+      User Tag 2
+    </p>
+  </div>
+</div>
+`;
+
+exports[`FlexBoxGrid renders subgrid 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column",
+    }
+  }
+>
+  <div
+    style={undefined}
+  >
+    <p>
+      User Tag 1
+    </p>
+  </div>
+  <div
+    style={
+      Object {
+        "flexGrow": 1,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
+    >
+      <div
+        style={undefined}
+      >
+        <p>
+          User Tag 2
+        </p>
+      </div>
+      <div
+        style={undefined}
+      >
+        <p>
+          User Tag 3
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`FlexBoxGrid renders without cells 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column",
+    }
+  }
+/>
+`;
+
+exports[`FlexBoxGrid renders cell without elements 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column",
+    }
+  }
+>
+  <div
+    style={undefined}
+  />
+</div>
+`;
