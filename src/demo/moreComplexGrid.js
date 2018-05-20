@@ -1,13 +1,7 @@
-const cellStyle = {
-  borderStyle: "solid",
-  borderWidth: "0.01em",
-  marginTop: "0.1em",
-  marginBottom: "0.1em",
-  marginRight: "0.2em",
-  padding: "0.1em",
-  textAlign: "center",
-  position: "relative"
-};
+import {
+  cellStyle,
+  CellGrowStyle
+} from './cellStyles';
 
 export default {
   style: {
@@ -17,10 +11,33 @@ export default {
     {
       style: cellStyle,
       component: {
-        name: "Text",
+        name: "MyComponent",
         options: {
-          text: "Box 1"
+          text: "My Component 1"
         }
+      }
+    },
+    {
+      subgrid: {
+        cells: [
+          {
+            style: CellGrowStyle,
+            component: {
+              name: "MyComponent",
+              options: {
+                text: "My Component 2"
+              }
+            }
+          },{
+            style: CellGrowStyle,
+            component: {
+              name: "MyComponent",
+              options: {
+                text: "My Component 3"
+              }
+            }
+          }
+        ]
       }
     },
     {
@@ -30,33 +47,33 @@ export default {
             subgrid: {
               style: {
                 flexDirection: "column",
-                width: "8em",
+                width: "10em",
               },
               cells: [
                 {
                   style: cellStyle,
                   component: {
-                    name: "Text",
+                    name: "MyComponent",
                     options: {
-                      text: "Box 2"
+                      text: "My Component 4"
                     }
                   }
                 },
                 {
                   style: cellStyle,
                   component: {
-                    name: "Text",
+                    name: "MyComponent",
                     options: {
-                      text: "Box 3"
+                      text: "My Component 5"
                     }
                   }
                 },
                 {
                   style: cellStyle,
                   component: {
-                    name: "Text",
+                    name: "MyComponent",
                     options: {
-                      text: "Box 4"
+                      text: "My Component 6"
                     }
                   }
                 }
@@ -64,11 +81,11 @@ export default {
             }
           },
           {
-            style: Object.assign({ flexGrow: 1 }, cellStyle),
+            style: CellGrowStyle,
             component: {
-              name: "Text",
+              name: "MyComponent",
               options: {
-                text: "Box 5"
+                text: "My Component 7"
               }
             }
           }
@@ -78,9 +95,9 @@ export default {
     {
       style: cellStyle,
       component: {
-        name: "Text",
+        name: "MyComponent",
         options: {
-          text: "Box 6"
+          text: "My Component 8"
         }
       }
     }
