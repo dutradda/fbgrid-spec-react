@@ -63,8 +63,10 @@ export default () => {
 ```
 
 The code above create this grid:
+
 ![simple grid](/docs/simple-grid.png)
 
+---
 
 Other example with a complex grid:
 
@@ -161,4 +163,5 @@ export default () => {
 ```
 
 The code above create this grid:
+
 ![complex grid](/docs/complex-grid.png)
