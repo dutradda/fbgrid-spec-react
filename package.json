@@ -1,6 +1,6 @@
 {
   "name": "fbgrid-spec-react",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "React component to generate flexbox grid via an Object, JSON or YAML specification",
   "main": "build/index.js",
   "scripts": {
