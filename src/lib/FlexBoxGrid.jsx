@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export default class FlexBoxGrid extends Component {
   render() {
     const gridCells = this.props.spec.cells || [];
-    const gridStyle = Object.assign(this.props.spec.style || {}, {display: "flex"});
+    const gridStyle = Object.assign({}, this.props.spec.style || {}, {display: "flex"});
     const gridCellsElements = [];
     let cellElem;
 
