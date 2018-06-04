@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 export default class FlexBoxGrid extends Component {
   render() {
     const gridCells = this.props.spec.cells || [];
-    const gridStyle = Object.assign({}, this.props.spec.style || {}, {display: "flex"});
+    const specStyle = this.props.spec.style || this.props.spec.overallStyle || {};
+    const gridStyle = Object.assign({}, specStyle, {display: 'flex'});
+    const gridStyleNames =  this.props.gridStyleNames || this.props.spec.overallStyleNames || [];
     const gridCellsElements = [];
     let cellElem;
 
@@ -14,7 +16,7 @@ export default class FlexBoxGrid extends Component {
     }
 
     return (
-      <div style={gridStyle}>
+      <div style={gridStyle} className={gridStyleNames.join(' ')}>
         {gridCellsElements}
       </div>
     );
@@ -22,6 +24,8 @@ export default class FlexBoxGrid extends Component {
 
   _renderCell(gridCells, i) {
     const cell = gridCells[i];
+    const className = cell.gridStyleNames || this.props.spec.overallStyleNames || [];
+    const style = cell.style || this.props.spec.overallStyle;
     let componentElem;
 
     if (cell.component) {
@@ -35,7 +39,7 @@ export default class FlexBoxGrid extends Component {
     }
 
     return (
-      <div style={cell.style} key={i}>
+      <div style={style} className={className.join(' ')} key={i}>
         {componentElem}
       </div>
     );
@@ -66,26 +70,34 @@ export default class FlexBoxGrid extends Component {
   static propTypes = {
     spec: PropTypes.shape({
       style: PropTypes.object,
+      styleNames: PropTypes.arrayOf(PropTypes.string),
       cells: PropTypes.arrayOf(
         PropTypes.oneOfType([
           PropTypes.shape({
             style: PropTypes.object,
+            styleNames: PropTypes.arrayOf(PropTypes.string),
             component: PropTypes.object.isRequired
           }),
           PropTypes.shape({
             style: PropTypes.object,
+            styleNames: PropTypes.arrayOf(PropTypes.string),
             subgrid: PropTypes.object.isRequired
           })
         ])
       ).isRequired,
-      componentsMap: PropTypes.object
-    }).isRequired
+      overallStyle: PropTypes.object,
+      overallStyleNames: PropTypes.arrayOf(PropTypes.string),
+    }).isRequired,
+    componentsMap: PropTypes.object.isRequired
   };
 
   static defaultProps = {
     spec: {
       style: {},
-      cells: []
+      styleNames: [],
+      cells: [],
+      overallStyle: {},
+      overallStyleNames: [],
     },
     componentsMap: {}
   };

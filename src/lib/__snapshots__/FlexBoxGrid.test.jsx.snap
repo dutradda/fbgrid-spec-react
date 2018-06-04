@@ -2,6 +2,7 @@
 
 exports[`FlexBoxGrid renders built-in tags 1`] = `
 <div
+  className=""
   style={
     Object {
       "display": "flex",
@@ -10,11 +11,13 @@ exports[`FlexBoxGrid renders built-in tags 1`] = `
   }
 >
   <div
+    className=""
     style={undefined}
   >
     <div />
   </div>
   <div
+    className=""
     style={undefined}
   >
     <div />
@@ -22,8 +25,9 @@ exports[`FlexBoxGrid renders built-in tags 1`] = `
 </div>
 `;
 
-exports[`FlexBoxGrid renders user tags 1`] = `
+exports[`FlexBoxGrid renders cell without elements 1`] = `
 <div
+  className=""
   style={
     Object {
       "display": "flex",
@@ -32,24 +36,72 @@ exports[`FlexBoxGrid renders user tags 1`] = `
   }
 >
   <div
+    className=""
     style={undefined}
+  />
+</div>
+`;
+
+exports[`FlexBoxGrid renders overallStyle 1`] = `
+<div
+  className=""
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column",
+    }
+  }
+>
+  <div
+    className=""
+    style={
+      Object {
+        "flexDirection": "column",
+      }
+    }
   >
-    <p>
-      User Tag 1
-    </p>
+    <div />
   </div>
   <div
+    className=""
+    style={
+      Object {
+        "flexDirection": "column",
+      }
+    }
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`FlexBoxGrid renders overallStyleNames 1`] = `
+<div
+  className="test1 test2"
+  style={
+    Object {
+      "display": "flex",
+    }
+  }
+>
+  <div
+    className="test1 test2"
     style={undefined}
   >
-    <p>
-      User Tag 2
-    </p>
+    <div />
+  </div>
+  <div
+    className="test1 test2"
+    style={undefined}
+  >
+    <div />
   </div>
 </div>
 `;
 
 exports[`FlexBoxGrid renders subgrid 1`] = `
 <div
+  className=""
   style={
     Object {
       "display": "flex",
@@ -58,6 +110,7 @@ exports[`FlexBoxGrid renders subgrid 1`] = `
   }
 >
   <div
+    className=""
     style={undefined}
   >
     <p>
@@ -65,6 +118,7 @@ exports[`FlexBoxGrid renders subgrid 1`] = `
     </p>
   </div>
   <div
+    className=""
     style={
       Object {
         "flexGrow": 1,
@@ -72,6 +126,7 @@ exports[`FlexBoxGrid renders subgrid 1`] = `
     }
   >
     <div
+      className=""
       style={
         Object {
           "display": "flex",
@@ -79,6 +134,7 @@ exports[`FlexBoxGrid renders subgrid 1`] = `
       }
     >
       <div
+        className=""
         style={undefined}
       >
         <p>
@@ -86,6 +142,7 @@ exports[`FlexBoxGrid renders subgrid 1`] = `
         </p>
       </div>
       <div
+        className=""
         style={undefined}
       >
         <p>
@@ -97,19 +154,9 @@ exports[`FlexBoxGrid renders subgrid 1`] = `
 </div>
 `;
 
-exports[`FlexBoxGrid renders without cells 1`] = `
+exports[`FlexBoxGrid renders user tags 1`] = `
 <div
-  style={
-    Object {
-      "display": "flex",
-      "flexDirection": "column",
-    }
-  }
-/>
-`;
-
-exports[`FlexBoxGrid renders cell without elements 1`] = `
-<div
+  className=""
   style={
     Object {
       "display": "flex",
@@ -118,7 +165,32 @@ exports[`FlexBoxGrid renders cell without elements 1`] = `
   }
 >
   <div
+    className=""
     style={undefined}
-  />
+  >
+    <p>
+      User Tag 1
+    </p>
+  </div>
+  <div
+    className=""
+    style={undefined}
+  >
+    <p>
+      User Tag 2
+    </p>
+  </div>
 </div>
+`;
+
+exports[`FlexBoxGrid renders without cells 1`] = `
+<div
+  className=""
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column",
+    }
+  }
+/>
 `;

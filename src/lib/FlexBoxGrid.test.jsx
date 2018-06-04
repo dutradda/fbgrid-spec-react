@@ -131,3 +131,39 @@ test('FlexBoxGrid renders cell without elements', () => {
     '    in FlexBoxGrid (at FlexBoxGrid.test.jsx:124)'
   );
 });
+
+test('FlexBoxGrid renders overallStyle', () => {
+  const spec = {
+    overallStyle: { flexDirection: 'column' },
+    cells: [
+      {
+        component: { name: 'div' }
+      },{
+        component: { name: 'div' }
+      }
+    ],
+  };
+  const flexGrid = renderer.create(
+    <FlexBoxGrid spec={spec} />,
+  ).toJSON();
+
+  expect(flexGrid).toMatchSnapshot();
+});
+
+test('FlexBoxGrid renders overallStyleNames', () => {
+  const spec = {
+    overallStyleNames: ['test1', 'test2'],
+    cells: [
+      {
+        component: { name: 'div' }
+      },{
+        component: { name: 'div' }
+      }
+    ],
+  };
+  const flexGrid = renderer.create(
+    <FlexBoxGrid spec={spec} />,
+  ).toJSON();
+
+  expect(flexGrid).toMatchSnapshot();
+});
