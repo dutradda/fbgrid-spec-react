@@ -24,7 +24,7 @@ export default class FlexBoxGrid extends Component {
 
   _renderCell(gridCells, i) {
     const cell = gridCells[i];
-    const className = cell.gridStyleNames || this.props.spec.overallStyleNames || [];
+    const className = cell.styleNames || this.props.spec.overallStyleNames || [];
     const style = cell.style || this.props.spec.overallStyle;
     let componentElem;
 
